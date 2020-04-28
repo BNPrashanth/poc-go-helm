@@ -1,3 +1,3 @@
 name: poc-helm
 description: A Helm charts for Kubernetes golang application
-version: v0.1.0
+version: v0.2.0
