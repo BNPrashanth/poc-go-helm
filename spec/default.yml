@@ -1,0 +1,7 @@
+get:
+  operationId: Default
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: './generalResponse.yml'

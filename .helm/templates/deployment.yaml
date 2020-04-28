@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: poc-helm
+  name: poc-helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poc-helm
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: poc-helm
+    spec:
+      containers:
+      - image: bnprashanth/poc-helm
+        name: poc-helm
+        resources: {}
+status: {}
