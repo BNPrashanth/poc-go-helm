@@ -1,6 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.service.name }}-config
+  name: poc-helm-config
 data:
   test: test value from configmap
+  default.json: |-
+    {
+      "test": "example value from file"
+    }

@@ -25,6 +25,15 @@ spec:
         - name: {{ printf "%s_TEST_CONFIG" .Values.service.name | upper | replace "-" "_" }}
           valueFrom:
             configMapKeyRef:
-              name: {{ .Values.service.name }}-config
+              name: poc-helm-config
               key: test
+        - name: {{ printf "%s_CONFIG_PATH" .Values.service.name | upper | replace "-" "_" }}
+          value: /etc/{{ .Values.service.name | replace "-" "_" }}/default.json
+        volumeMounts:
+        - name: poc-helm-config
+          mountPath: /etc/{{ .Values.service.name | replace "-" "_" }}/
+      volumes:
+      - name: poc-helm-config
+        configMap:
+          name: poc-helm-config
 status: {}
