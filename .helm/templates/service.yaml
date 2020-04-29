@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: poc-helm
-  name: poc-helm
+  name: {{ .Values.service.name }}
 spec:
   type: {{ .Values.service.type }}
   ports:

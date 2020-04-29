@@ -4,21 +4,27 @@ metadata:
   creationTimestamp: null
   labels:
     app: poc-helm
-  name: poc-helm
+  name: {{ .Values.service.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: poc-helm
+      app: {{ .Values.service.name }}
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: poc-helm
+        app: {{ .Values.service.name }}
     spec:
       containers:
       - image: bnprashanth/poc-helm
         name: poc-helm
         resources: {}
+        env:
+        - name: {{ printf "%s_TEST_CONFIG" .Values.service.name | upper | replace "-" "_" }}
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Values.service.name }}-config
+              key: test
 status: {}

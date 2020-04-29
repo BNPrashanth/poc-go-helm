@@ -42,7 +42,7 @@ func configureAPI(api *operations.PocHelmAPI) http.Handler {
 		api.DefaultHandler = operations.DefaultHandlerFunc(func(params operations.DefaultParams) middleware.Responder {
 			return operations.NewDefaultOK().WithPayload(&models.GeneralResponse{
 				Success: true,
-				Message: "Sending success with env: " + viper.GetString("POC_HELM_TEST_VAL"),
+				Message: "Sending success with env: " + viper.GetString("POC_HELM_TEST_VAL") + " <<>> " + viper.GetString("POC_HELM_TEST_CONFIG"),
 			})
 		})
 	}

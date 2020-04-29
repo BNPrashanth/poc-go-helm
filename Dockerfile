@@ -14,5 +14,6 @@ FROM alpine
 WORKDIR /app
 COPY --from=builder /app/ /app/
 ENV POC_HELM_TEST_VAL "TEST via docker env"
+ENV POC_HELM_TEST_CONFIG "TEST CONFIG via docker env"
 EXPOSE 8080
 CMD ["./poc-helm"]
